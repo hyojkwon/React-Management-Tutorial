@@ -1,27 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import Customer from './components/Customer';
 
-
-function Header(props) {
-  return <h1><a href='/'>{props.name}</a></h1>
-}
-
-
+const custs = [
+	{
+		'id': 1,
+		'img': 'https://placeimg.com/64/64/any',
+		'name': '이나라',
+		'birthday': '23123',
+		'job': '123123'
+	},
+	{
+		'id': 2,
+		'img': 'https://placeimg.com/64/64/any',
+		'name': 'sdf',
+		'birthday': '312123443',
+		'job': '321321'
+	},
+	{
+		'id': 3,
+		'img': 'https://placeimg.com/64/64/any',
+		'name': 'bababb',
+		'birthday': '242343123',
+		'job': '123122343'
+	},
+]
 
 function App() {
-  const topics = [
-    {id:1, title:'html', body:'html is ...'},
-    {id:2, title:'css', body:'css is ...'},
-    {id:3, title:'js', body:'js is ...'},
-  ]
-  return (
-    <div className="App">
-      <div className="gray-background">
-        <img src={logo} lat="logo" />
-        <h2>Let's develop</h2>
-      </div>
-    </div>
-  );
+	
+	return (
+		<div className="App">
+			{
+				custs.map(c => {
+					return (
+						<Customer
+							key={c.id}
+							id={c.id}
+							name={c.name}
+							birthday={c.birthday}
+							job={c.job}
+						/>
+					)
+				})
+			}
+		</div>
+	);
 }
 
 export default App;
